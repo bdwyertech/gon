@@ -78,12 +78,12 @@ func info(ctx context.Context, uuid string, opts *Options) (*Info, error) {
 
 	cmd.Args = []string{
 		filepath.Base(cmd.Path),
-		"altool",
-		"--notarization-info",
+		"notarytool",
+		"info",
 		uuid,
-		"-u", opts.Username,
-		"-p", opts.Password,
-		"--output-format", "xml",
+		"--apple-id", opts.Username,
+		"--password", opts.Password,
+		"--output-format", "plist",
 	}
 
 	// We store all output in out for logging and in case there is an error
